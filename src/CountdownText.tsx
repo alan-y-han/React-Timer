@@ -4,7 +4,7 @@ type Props = {
   seconds: number;
 };
 
-class Countdown extends React.Component<Props> {
+class CountdownText extends React.Component<Props> {
   public render() {
     return (
       <div>
@@ -14,4 +14,4 @@ class Countdown extends React.Component<Props> {
   }
 }
 
-export default Countdown;
+export default CountdownText;

@@ -1,13 +1,22 @@
 import React from "react";
+import "./Button.css";
 
 type Props = {
   onPress: () => void;
-  text: string;
+  enabled: boolean;
 };
 
 class Button extends React.Component<Props> {
   render() {
-    return <button onClick={this.props.onPress}>{this.props.text}</button>;
+    return (
+      <button
+        className="button"
+        onClick={this.props.onPress}
+        disabled={!this.props.enabled}
+      >
+        {this.props.children}
+      </button>
+    );
   }
 }
 

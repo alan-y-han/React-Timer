@@ -1,10 +1,14 @@
 import React from "react";
 // import './App.css';
-import Countdown from "./Countdown";
+import CountdownText from "./CountdownText";
 import Button from "./Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import * as fa from "@fortawesome/free-solid-svg-icons";
+import StageText from "./StageText";
 
 type State = {
   seconds: number;
+  running: boolean;
 };
 
 type Props = {};
@@ -16,6 +20,7 @@ class App extends React.Component<Props, State> {
     super(props);
     this.state = {
       seconds: 10,
+      running: false,
     };
   }
 
@@ -26,19 +31,38 @@ class App extends React.Component<Props, State> {
   public render() {
     return (
       <div className="App">
-        <Button onPress={() => {}} text={"Reset"} />
-        <Countdown seconds={this.state.seconds} />
-        <Button onPress={this.startCountdown} text={"Start"} />
+        <Button onPress={this.resetButtonCallback} enabled={true}>
+          <div>Reset</div>
+          <FontAwesomeIcon icon={fa.faUndo} />
+        </Button>
+
+        <StageText stageNo={0} stageNames={["woot"]} />
+
+        <CountdownText seconds={this.state.seconds} />
+        <Button
+          onPress={this.startButtonCallback}
+          enabled={!this.state.running}
+        >
+          <div>Start</div>
+          <FontAwesomeIcon icon={fa.faPlay} />
+        </Button>
       </div>
     );
   }
 
-  startCountdown = () => {
+  startButtonCallback = () => {
     this.timerID = setInterval(() => this.tick(), 1000);
+    this.setState({
+      running: true,
+    });
   };
 
   resetButtonCallback = () => {
     this.clearTimer();
+    this.setState({
+      seconds: 10,
+      running: false,
+    });
   };
 
   tick() {
