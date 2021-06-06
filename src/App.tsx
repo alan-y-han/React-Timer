@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as fa from "@fortawesome/free-solid-svg-icons";
 import StageText from "./StageText";
 import Timer from "./Timer";
+import Notification from "./notification.mp3";
 
 type AppState = {
     secondsLeft: number;
@@ -30,15 +31,6 @@ class App extends React.Component<AppProps, AppState> {
         //     name: "Pre Magitek Colossus",
         //     seconds: 3
         // }
-        // {
-        //     name: "Post Magitek Colossus",
-        //     seconds: 51,
-        // },
-        // {
-        //     name: "Magitek Armor",
-        //     seconds: 65,
-        // },
-        // { name: "Click Next to begin", seconds: 0 },
         { name: "Intro", seconds: 72 },
         { name: "Pre Magitek Colossus", seconds: 175 },
         { name: "Post Magitek Colossus", seconds: 51 },
@@ -58,12 +50,15 @@ class App extends React.Component<AppProps, AppState> {
     };
 
     private timer: Timer;
+    private notificationSound: HTMLAudioElement;
 
     constructor(props: AppProps) {
         super(props);
 
         this.state = this.getDefaultState();
         this.timer = new Timer(this.tick, 1000);
+        this.notificationSound = new Audio(Notification);
+        this.notificationSound.volume = 0.3;
     }
 
     componentWillUnmount() {
@@ -119,15 +114,16 @@ class App extends React.Component<AppProps, AppState> {
         this.setState(this.getDefaultState());
     };
 
-    getDefaultState = (): AppState => ({
-        ...this.defaultState
-    });
+    getDefaultState = (): AppState => this.defaultState;
 
     tick = () => {
         const nextSecond = this.state.secondsLeft - 1;
 
         if (nextSecond === 0) {
             this.clearTimer();
+
+            this.notificationSound.currentTime = 0;
+            this.notificationSound.play();
         }
 
         this.setState((state) => ({
