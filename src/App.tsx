@@ -8,7 +8,7 @@ import StageText from "./StageText";
 import Timer from "./Timer";
 
 type AppState = {
-    seconds: number;
+    secondsLeft: number;
     currentStage: number;
     timerRunning: boolean;
 };
@@ -22,14 +22,14 @@ type Stage = {
 
 class App extends React.Component<AppProps, AppState> {
     private stages: Stage[] = [
-        {
-            name: "Intro",
-            seconds: 2
-        },
-        {
-            name: "Pre Magitek Colossus",
-            seconds: 3
-        }
+        // {
+        //     name: "Intro",
+        //     seconds: 2
+        // },
+        // {
+        //     name: "Pre Magitek Colossus",
+        //     seconds: 3
+        // }
         // {
         //     name: "Post Magitek Colossus",
         //     seconds: 51,
@@ -38,10 +38,21 @@ class App extends React.Component<AppProps, AppState> {
         //     name: "Magitek Armor",
         //     seconds: 65,
         // },
+        // { name: "Click Next to begin", seconds: 0 },
+        { name: "Intro", seconds: 72 },
+        { name: "Pre Magitek Colossus", seconds: 175 },
+        { name: "Post Magitek Colossus", seconds: 51 },
+        { name: "Magitek Armor", seconds: 65 },
+        { name: "Nero", seconds: 337 },
+        { name: "Gaius 1", seconds: 101 },
+        { name: "Gaius 2", seconds: 290 },
+        { name: "Ultima", seconds: 177 },
+        { name: "Between Ultima Phases", seconds: 310 },
+        { name: "Lahabrea", seconds: 240 }
     ];
 
     private defaultState: AppState = {
-        seconds: this.stages[0].seconds,
+        secondsLeft: this.stages[0].seconds,
         currentStage: 0,
         timerRunning: false
     };
@@ -61,7 +72,7 @@ class App extends React.Component<AppProps, AppState> {
 
     public render() {
         const enableNextButton =
-            this.state.currentStage === this.stages.length - 1 && this.state.seconds === 0
+            this.state.currentStage === this.stages.length - 1 && this.state.secondsLeft === 0
                 ? false
                 : !this.state.timerRunning;
 
@@ -78,7 +89,7 @@ class App extends React.Component<AppProps, AppState> {
                     stageName={this.stages[this.state.currentStage].name}
                 />
 
-                <CountdownText seconds={this.state.seconds} />
+                <CountdownText seconds={this.state.secondsLeft} />
                 <Button onPress={this.nextButtonCallback} enabled={enableNextButton}>
                     <div>Next</div>
                     <FontAwesomeIcon icon={fa.faPlay} />
@@ -91,13 +102,13 @@ class App extends React.Component<AppProps, AppState> {
         if (!this.state.timerRunning) {
             const nextStage = this.state.currentStage + 1;
 
-            if (this.state.currentStage === 0 && this.state.seconds !== 0) {
+            if (this.state.currentStage === 0 && this.state.secondsLeft !== 0) {
                 this.startTimer();
             } else if (nextStage < this.stages.length) {
                 this.startTimer();
                 this.setState({
                     currentStage: nextStage,
-                    seconds: this.stages[nextStage].seconds
+                    secondsLeft: this.stages[nextStage].seconds
                 });
             }
         }
@@ -113,14 +124,14 @@ class App extends React.Component<AppProps, AppState> {
     });
 
     tick = () => {
-        const nextSecond = this.state.seconds - 1;
+        const nextSecond = this.state.secondsLeft - 1;
 
         if (nextSecond === 0) {
             this.clearTimer();
         }
 
         this.setState((state) => ({
-            seconds: state.seconds - 1
+            secondsLeft: state.secondsLeft - 1
         }));
     };
 

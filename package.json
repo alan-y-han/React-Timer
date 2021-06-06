@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "https://alan-y-han.github.io/React-Timer",
   "dependencies": {
+    "@babel/helper-define-map": "^7.13.12",
+    "@babel/runtime": "^7.14.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
