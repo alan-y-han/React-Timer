@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/React-Timer/static/css/main.75a5df3d.chunk.css",
-    "main.js": "/React-Timer/static/js/main.686d5b92.chunk.js",
-    "main.js.map": "/React-Timer/static/js/main.686d5b92.chunk.js.map",
+    "main.js": "/React-Timer/static/js/main.6e96782d.chunk.js",
+    "main.js.map": "/React-Timer/static/js/main.6e96782d.chunk.js.map",
     "runtime-main.js": "/React-Timer/static/js/runtime-main.a6672db9.js",
     "runtime-main.js.map": "/React-Timer/static/js/runtime-main.a6672db9.js.map",
     "static/js/2.27213b27.chunk.js": "/React-Timer/static/js/2.27213b27.chunk.js",
     "static/js/2.27213b27.chunk.js.map": "/React-Timer/static/js/2.27213b27.chunk.js.map",
     "index.html": "/React-Timer/index.html",
-    "precache-manifest.2849d14797650f91271d02bab4cc2846.js": "/React-Timer/precache-manifest.2849d14797650f91271d02bab4cc2846.js",
+    "precache-manifest.c073dbd25b82931b31ca0a9cc0ca5c39.js": "/React-Timer/precache-manifest.c073dbd25b82931b31ca0a9cc0ca5c39.js",
     "service-worker.js": "/React-Timer/service-worker.js",
     "static/css/main.75a5df3d.chunk.css.map": "/React-Timer/static/css/main.75a5df3d.chunk.css.map",
     "static/js/2.27213b27.chunk.js.LICENSE.txt": "/React-Timer/static/js/2.27213b27.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.a6672db9.js",
     "static/js/2.27213b27.chunk.js",
     "static/css/main.75a5df3d.chunk.css",
-    "static/js/main.686d5b92.chunk.js"
+    "static/js/main.6e96782d.chunk.js"
   ]
 }
