@@ -5,18 +5,18 @@
     "main.js.map": "/React-Timer/static/js/main.648ed19a.chunk.js.map",
     "runtime-main.js": "/React-Timer/static/js/runtime-main.a6672db9.js",
     "runtime-main.js.map": "/React-Timer/static/js/runtime-main.a6672db9.js.map",
-    "static/js/2.ac696f9d.chunk.js": "/React-Timer/static/js/2.ac696f9d.chunk.js",
-    "static/js/2.ac696f9d.chunk.js.map": "/React-Timer/static/js/2.ac696f9d.chunk.js.map",
+    "static/js/2.27213b27.chunk.js": "/React-Timer/static/js/2.27213b27.chunk.js",
+    "static/js/2.27213b27.chunk.js.map": "/React-Timer/static/js/2.27213b27.chunk.js.map",
     "index.html": "/React-Timer/index.html",
-    "precache-manifest.bb7f684019e5432172cc190f31e8365c.js": "/React-Timer/precache-manifest.bb7f684019e5432172cc190f31e8365c.js",
+    "precache-manifest.8ee3503695be4da392394ea3395e7fbd.js": "/React-Timer/precache-manifest.8ee3503695be4da392394ea3395e7fbd.js",
     "service-worker.js": "/React-Timer/service-worker.js",
     "static/css/main.75a5df3d.chunk.css.map": "/React-Timer/static/css/main.75a5df3d.chunk.css.map",
-    "static/js/2.ac696f9d.chunk.js.LICENSE.txt": "/React-Timer/static/js/2.ac696f9d.chunk.js.LICENSE.txt",
+    "static/js/2.27213b27.chunk.js.LICENSE.txt": "/React-Timer/static/js/2.27213b27.chunk.js.LICENSE.txt",
     "static/media/notification.mp3": "/React-Timer/static/media/notification.edf88af1.mp3"
   },
   "entrypoints": [
     "static/js/runtime-main.a6672db9.js",
-    "static/js/2.ac696f9d.chunk.js",
+    "static/js/2.27213b27.chunk.js",
     "static/css/main.75a5df3d.chunk.css",
     "static/js/main.648ed19a.chunk.js"
   ]
