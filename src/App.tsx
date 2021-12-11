@@ -30,7 +30,7 @@ class App extends React.Component<AppProps, AppState> {
         // {
         //     name: "Pre Magitek Colossus",
         //     seconds: 3
-        // }
+        // },
         { name: "Intro", seconds: 72 },
         { name: "Pre Magitek Colossus", seconds: 175 },
         { name: "Post Magitek Colossus", seconds: 51 },
@@ -52,13 +52,15 @@ class App extends React.Component<AppProps, AppState> {
     private timer: Timer;
     private notificationSound: HTMLAudioElement;
 
+    private silentSound = "data:audio/mpeg;base64,SUQzBAAAAAABEVRYWFgAAAAtAAADY29tbWVudABCaWdTb3VuZEJhbmsuY29tIC8gTGFTb25vdGhlcXVlLm9yZwBURU5DAAAAHQAAA1N3aXRjaCBQbHVzIMKpIE5DSCBTb2Z0d2FyZQBUSVQyAAAABgAAAzIyMzUAVFNTRQAAAA8AAANMYXZmNTcuODMuMTAwAAAAAAAAAAAAAAD/80DEAAAAA0gAAAAATEFNRTMuMTAwVVVVVVVVVVVVVUxBTUUzLjEwMFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQsRbAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQMSkAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV";
+
     constructor(props: AppProps) {
         super(props);
 
         this.state = this.getDefaultState();
         this.timer = new Timer(this.tick, 1000);
-        this.notificationSound = new Audio(Notification);
-        this.notificationSound.volume = 0.3;
+        this.notificationSound = new Audio();
+        this.notificationSound.volume = 0.7;
     }
 
     componentWillUnmount() {
@@ -94,6 +96,12 @@ class App extends React.Component<AppProps, AppState> {
     }
 
     nextButtonCallback = () => {
+        // play silent sound on button press so it works with iOS
+        this.notificationSound.src = this.silentSound;
+        this.notificationSound.currentTime = 0;
+        this.notificationSound.play();
+        this.notificationSound.src = Notification;
+
         if (!this.state.timerRunning) {
             const nextStage = this.state.currentStage + 1;
 
